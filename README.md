@@ -1,2 +1,2 @@
-# mediapipe-ncnn
-mediapipe-ncnn
+# ai-toolbox
+ai-toolbox
