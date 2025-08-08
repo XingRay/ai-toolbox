@@ -8,6 +8,7 @@
 #include <memory>
 
 #include <GLFW/glfw3.h>
+#include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <opencv2/core.hpp>
 
@@ -17,18 +18,21 @@
 namespace test {
     class Vertex {
     public:
-        glm::vec3 pos;
+        glm::vec3 position;
+        glm::vec2 uv;
     };
 
     class Renderer {
     private:
-        const int32_t mWidth = 1024;
-        const int32_t mHeight = 1024;
+        int32_t mWidth = 0;
+        int32_t mHeight = 0;
         GLFWwindow* mWindow;
 
         std::unique_ptr<vklite::GraphicPipelineEngine> mEngine;
         std::unique_ptr<vklite::IndexBuffer> mIndexBuffer;
         std::unique_ptr<vklite::VertexBuffer> mVertexBuffer;
+
+        std::vector<vklite::CombinedImageSampler> mSamplers;
 
     public:
         explicit Renderer();

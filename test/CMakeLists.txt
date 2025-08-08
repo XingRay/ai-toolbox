@@ -1,10 +1,10 @@
 project(test)
 
 file(GLOB_RECURSE SRC_LIST
-        *.cpp
-        *.c++
-        *.cxx
-        *.c
+        src/*.cpp
+        src/*.c++
+        src/*.cxx
+        src/*.c
 )
 
 add_executable(${PROJECT_NAME}
@@ -28,11 +28,11 @@ target_link_libraries(${PROJECT_NAME}
 
 
 target_include_directories(${PROJECT_NAME}
-        PRIVATE .
+        PRIVATE src
 )
 
 include(../cmake/import_opencv.cmake)
 copy_opencv_dll(${PROJECT_NAME} ${opencv_INSTALL_DIR})
 
 include(../cmake/utils.cmake)
-copyDirToTargetDir("spv")
+copyDirToTargetDir("resource/spv")
