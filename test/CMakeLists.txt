@@ -12,10 +12,19 @@ add_executable(${PROJECT_NAME}
 )
 
 message("${PROJECT_NAME} link OpenCV_LIBS:${OpenCV_LIBS}")
+
 if (NOT TARGET glm)
     message(FATAL_ERROR "glm is not a target !")
 else ()
     message("glm is a target !")
+endif ()
+
+if (NOT TARGET ncnn)
+    message(FATAL_ERROR "ncnn is not a target !")
+else ()
+    message("ncnn is a target !")
+    get_target_property(ncnn_include ncnn INTERFACE_INCLUDE_DIRECTORIES)
+    message("ncnn_include:${ncnn_include}")
 endif ()
 
 target_link_libraries(${PROJECT_NAME}
